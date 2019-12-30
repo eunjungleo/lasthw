@@ -41,8 +41,8 @@ import Button from '@material-ui/core/Button';
         this.getPosts()
     }
 
-    handlingDelete = async (event) => {
-        await api.deletePost(event.target.value)
+    handlingDelete = async (id) => {
+        await api.deletePost(id)
         this.getPosts()
     }
 
@@ -88,7 +88,7 @@ import Button from '@material-ui/core/Button';
                 <div>
                 <Paper className="contents" variant="outlined">
                     <PostView key={post.id} id={post.id} title = {post.title} content = {post.content} />
-                    <Button variant="contained" color="secondary" value={post.id} onClick={this.handlingDelete}>삭제하기</Button>
+                    <Button variant="contained" color="secondary" onClick={(event)=>this.handlingDelete(post.id)}>삭제하기</Button>
                 </Paper>
                 </div>
                 )
