@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import api from './api';
 import PostView from './Components/PostView'
+// components;  material-ui
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
@@ -21,6 +22,7 @@ import Button from '@material-ui/core/Button';
         this.getPosts()
     }
 
+    // load all posts
     async getPosts () {
         const _results = await api.getAllPosts()
         console.log(_results)
@@ -28,11 +30,13 @@ import Button from '@material-ui/core/Button';
 
     }
 
-    
+    // handling input fields
     handlingChange = (event) => {
         this.setState({[event.target.name]: event.target.value})
     } 
 
+    // submit to post
+    // asynchronous 
     handlingSubmit = async (event) => {
         event.preventDefault()
         let result = await api.createPost( {title: this.state.title, content:this.state.content})
@@ -41,6 +45,8 @@ import Button from '@material-ui/core/Button';
         this.getPosts()
     }
 
+    // delete post
+    // asynchronous
     handlingDelete = async (id) => {
         await api.deletePost(id)
         this.getPosts()
@@ -56,6 +62,7 @@ import Button from '@material-ui/core/Button';
 
         
         <form onSubmit={this.handlingSubmit} noValidate autoComplete="off">
+            
             <TextField id="standard-basic-full-width" label="제목"
             name='title'
             value={this.state.title}
@@ -76,7 +83,9 @@ import Button from '@material-ui/core/Button';
             <br/>
             <br/>
             <Button variant="contained" color="primary" type='submit'>등록하기</Button>
+
         </form>
+
         </div>
         <br/>
         </Container>

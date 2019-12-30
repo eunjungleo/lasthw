@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 
-
+// a dummy prop when posts empty.
+/*
 const dummy_prop = {
     title: 'test title',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
 }
-
+*/
+     
+// rendering each post item to show
 export default class PostView extends Component {
     render() {
         const {id, title, content} =this.props
         return (
-            
             <div>
                 <br/>
                 {id}
